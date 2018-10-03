@@ -1,7 +1,7 @@
 {
-  "name": "singer",
+  "name": "notator_server",
   "version": "1.0.0",
-  "description": "an app for recognizing audio and returning classical sheet music",
+  "description": "the backend for an app that uses pitch recognition to create music notation",
   "main": "server.js",
   "directories": {
     "test": "test"

@@ -5,6 +5,6 @@ deploy:
   provider: heroku
   api_key:
     secure: 2wVyC5gODQ3NGsxLPhMq8abg+ydFJ2lGI9BH8+bE46uQAaGIl8elGZ+urxgO8PXhLRsV5CXY4HCGzVG8SmKvZH7CrlacDn6dlURr+4KsqzSYpUSHb9z+qz9iELxax62S+MU1BIEGhrine10NMZyqOCU4Rz6mbBiFWtlZVY3ciuwnoArvmhNp8sdg4wxcjnYM4tTkJreK2hJbtaVOhWgfyjQUARwzdL/cpmhI+CfRFzOM8L8lkJmL4AQhfUt3kQgAb1eKuKHXrCWwWq23Ou68znkgMJBhV7z6runB9dC2xhlVA/IMtMDsfq3GOvpYNdhmc9KPJHBhFM7diwWMvAPottU2kD2GyfvU0wX39YmbV7MBUAO1x+Bog7vOjCTt57LlhiHzNks8YfcKxW6tXlAe7kK0QO7Ll4BR/TS/xGGmCRBtq/7kdr2ZKP1M+6S1LuNLDamuJysvMHFzIg06mQuQiaKrlOKoDT1TuECdQ2TAxzSS+aO0+0n7luYjHqeftXYIxnOpJcpcrB8WwOxwDUrIZY8tZ/rP5BCX3Q6i4FzB9UeMG7FiouokJfKoqn490csvZO0RJWw3jZASEDoRhl3z9v8m2/jFU2L5mCQ4D4T30VZQayJVfxZyDbqMnHw43s0SOmmcpJRFzNmJV23v/lTfDh/qni8KKlLdyHSYQdmh7og=
-  app: still-wave-85687
+  app: notatorserver
   on:
-    repo: Blakesters/singer_server
+    repo: Blakesters/notator_server
