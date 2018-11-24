@@ -50,7 +50,7 @@ let userObjectId = mongoose.Types.ObjectId(req.user.id);
 
 router.post('/', (req, res) => {
 	console.log('posting new composition');
-	const requiredFields = ['username', 'title', 'music', 'creation'];
+	const requiredFields = ['username', 'title', 'music', 'clef', 'timeSignature', 'creation'];
 	requiredFields.forEach(field => {
 		if (!(field in req.body)) {
 			const message = `Missing ${field} in request body`;
@@ -67,6 +67,8 @@ router.post('/', (req, res) => {
 				user: users[0]._id,
 				title: req.body.title,
 				music: req.body.music,
+				clef: req.body.clef,
+				timeSignature: req.body.timeSignature,
 				creation: req.body.creation
 			})
 			.then(function(composition) {

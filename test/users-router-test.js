@@ -260,6 +260,8 @@ describe('Users API resource', function() {
 						username: 'jason',
 						title: 'the danube waltz',
 						music: '|ABCD|',
+						clef: 'bass',
+						timeSignature: '4/4',
 						creation: truncatedDateString
 					};
 					return chai.request(app)

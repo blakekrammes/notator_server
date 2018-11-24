@@ -13,6 +13,8 @@ const pastCompositionSchema = mongoose.Schema({
 	user: { type: mongoose.Schema.Types.ObjectId, ref: 'Users' },
 	title: {type: String},
 	music: {type: String},
+	clef: {type: String},
+	timeSignature: {type: String},
 	creation: {type: String}
 });
 
@@ -42,6 +44,8 @@ pastCompositionSchema.methods.serialize = function() {
 		username: this.user.username,
 		title: this.title,
 		music: this.music,
+		clef: this.clef,
+		timeSignature: this.timeSignature,
 		creation: this.creation
 	};
 };
