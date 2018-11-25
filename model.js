@@ -15,6 +15,8 @@ const pastCompositionSchema = mongoose.Schema({
 	music: {type: String},
 	clef: {type: String},
 	timeSignature: {type: String},
+	baseNoteValue: {type: String},
+	key: {type: String},
 	creation: {type: String}
 });
 
@@ -46,6 +48,8 @@ pastCompositionSchema.methods.serialize = function() {
 		music: this.music,
 		clef: this.clef,
 		timeSignature: this.timeSignature,
+		baseNoteValue: this.baseNoteValue,
+		key: this.key,
 		creation: this.creation
 	};
 };

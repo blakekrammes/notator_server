@@ -262,6 +262,8 @@ describe('Users API resource', function() {
 						music: '|ABCD|',
 						clef: 'bass',
 						timeSignature: '4/4',
+						baseNoteValue: '2/8',
+						key: 'CMaj',
 						creation: truncatedDateString
 					};
 					return chai.request(app)
@@ -274,10 +276,14 @@ describe('Users API resource', function() {
 						.set('Authorization', `Bearer ${token}`)
 						.then(function(userCompositionsRes) {
 							expect(userCompositionsRes.body.compositions).to.be.an('array');
-							expect(userCompositionsRes.body.compositions[0]).to.include.keys('id', 'username', 'title', 'music');
+							expect(userCompositionsRes.body.compositions[0]).to.include.keys('id', 'username', 'title', 'music', 'clef', 'timeSignature', 'baseNoteValue', 'key', 'creation');
 							expect(userCompositionsRes.body.compositions[0].username).to.equal(pastComposition.username);
 							expect(userCompositionsRes.body.compositions[0].title).to.equal(pastComposition.title);
 							expect(userCompositionsRes.body.compositions[0].music).to.eql(pastComposition.music);
+							expect(userCompositionsRes.body.compositions[0].clef).to.eql(pastComposition.clef);
+							expect(userCompositionsRes.body.compositions[0].timeSignature).to.eql(pastComposition.timeSignature);
+							expect(userCompositionsRes.body.compositions[0].baseNoteValue).to.eql(pastComposition.baseNoteValue);
+							expect(userCompositionsRes.body.compositions[0].key).to.eql(pastComposition.key);
 						})
 					});
 				});

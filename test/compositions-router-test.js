@@ -38,6 +38,8 @@ function generatePastCompositionData(user) {
 		music: faker.internet.domainWord(),
 		clef: faker.lorem.words(),
 		timeSignature: faker.lorem.words(),
+		baseNoteValue: faker.lorem.words(),
+		key: faker.lorem.words(),
 		creation: truncatedDateString
 	})
 	.catch(function(err) {
@@ -82,7 +84,7 @@ describe('PastCompositions API resource', function() {
 				expect(res).to.be.json;
 				expect(res.body.compositions).to.be.a('array');
 				expect(res.body.compositions.length).to.be.at.least(1);
-				const expectedKeys = ['id', 'username', 'title', 'music', 'clef', 'timeSignature', 'creation'];
+				const expectedKeys = ['id', 'username', 'title', 'music', 'clef', 'timeSignature', 'baseNoteValue', 'key', 'creation'];
 				res.body.compositions.forEach(function(composition) {
 					expect(composition).to.be.a('object');
 					expect(composition).to.include.keys(expectedKeys);
@@ -97,6 +99,8 @@ describe('PastCompositions API resource', function() {
 				expect(pastCompositionVar.music).to.eql(compositions[0].music);
 				expect(pastCompositionVar.clef).to.eql(compositions[0].clef);
 				expect(pastCompositionVar.timeSignature).to.eql(compositions[0].timeSignature);
+				expect(pastCompositionVar.baseNoteValue).to.eql(compositions[0].baseNoteValue);
+				expect(pastCompositionVar.key).to.eql(compositions[0].key);
 				expect(pastCompositionVar.creation).to.eql(compositions[0].creation);
 				return PastCompositions.count();
 			})
@@ -125,6 +129,8 @@ describe('PastCompositions API resource', function() {
 						music: faker.internet.domainWord(),
 						clef: faker.lorem.words(),
 						timeSignature: faker.lorem.words(),
+						baseNoteValue: faker.lorem.words(),
+						key: faker.lorem.words(),
 						creation: truncatedDateString
 					})
 				})
@@ -142,13 +148,15 @@ describe('PastCompositions API resource', function() {
 							expect(res).to.have.status(201);
 							expect(res).to.be.json;
 							expect(res.body).to.be.a('object');
-							expect(res.body).to.include.keys('id', 'username', 'title', 'music', 'clef', 'timeSignature', 'creation');
+							expect(res.body).to.include.keys('id', 'username', 'title', 'music', 'clef', 'timeSignature', 'baseNoteValue', 'key', 'creation');
 							expect(res.body.id).to.not.be.null;
 							expect(res.body.username).to.equal(newComposition.username);
 							expect(res.body.title).to.equal(newComposition.title);
 							expect(res.body.music).to.eql(newComposition.music);
 							expect(res.body.clef).to.eql(newComposition.clef);
 							expect(res.body.timeSignature).to.eql(newComposition.timeSignature);
+							expect(res.body.baseNoteValue).to.eql(newComposition.baseNoteValue);
+							expect(res.body.key).to.eql(newComposition.key);
 							return PastCompositions.find({_id: res.body.id});
 						})
 						.then(function(compositions) {
@@ -157,6 +165,8 @@ describe('PastCompositions API resource', function() {
 							expect(JSON.stringify(compositions[0].music)).to.equal(JSON.stringify(newComposition.music));
 							expect(JSON.stringify(compositions[0].clef)).to.equal(JSON.stringify(newComposition.clef));
 							expect(JSON.stringify(compositions[0].timeSignature)).to.equal(JSON.stringify(newComposition.timeSignature));
+							expect(JSON.stringify(compositions[0].baseNoteValue)).to.equal(JSON.stringify(newComposition.baseNoteValue));
+							expect(JSON.stringify(compositions[0].key)).to.equal(JSON.stringify(newComposition.key));
 						})
 						.catch(function(err) {
 							console.error(err);
